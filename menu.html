@@ -10,80 +10,154 @@
 <body>
     <div class="page-shell page-alt">
         <nav class="site-nav">
-            <a href="index.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="services.html">Services</a>
-            <a href="menu.html" class="active">Menu</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav-links">
+                <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+            <div class="site-nav-links" id="site-nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="services.html">Services</a>
+                <a href="menu.html" class="active">Menu</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </nav>
 
-        <header class="page-intro">
+        <header class="page-intro menu-header">
             <p class="eyebrow">Menu</p>
             <h1>Our flavours</h1>
             <p>A selection of classic, fruity, and indulgent rolled ice cream flavours made fresh.</p>
+            <div class="menu-pill-row" aria-label="menu highlights">
+                <span>Freshly rolled</span>
+                <span>Premium toppings</span>
+                <span>Made to order</span>
+            </div>
         </header>
 
         <main>
-            <section class="feature-grid" style="margin-top: 0;">
-                <article class="feature-card">
+            <section class="featured-menu-panel" aria-label="Best seller highlight">
+                <div class="featured-menu-copy">
+                    <p class="featured-menu-kicker">Best seller</p>
+                    <h2>Oreo Madness</h2>
+                    <p>Creamy vanilla and crushed Oreo biscuits with a rich cookie finish and soft, indulgent texture.</p>
+                </div>
+                <div class="featured-menu-visual" aria-hidden="true">
+                    <div class="gold-line gold-line-one"></div>
+                    <div class="gold-line gold-line-two"></div>
+                    <div class="featured-image-wrap">
+                        <img src="Oreo.png" alt="Oreo Madness featured flavour">
+                    </div>
+                </div>
+            </section>
+
+            <section class="feature-grid menu-grid" style="margin-top: 0;">
+                <article class="feature-card menu-card">
                     <div class="image-frame">
                         <img class="image-placeholder" src="Oreo.png" alt="Oreo Madness">
                     </div>
-                    <h2>Oreo Madness</h2>
-                    <p>Creamy vanilla and crushed Oreo biscuits in a rich cookies-and-cream finish.</p>
+                    <div class="menu-card-copy">
+                        <div class="menu-card-topline">
+                            <span class="menu-card-type">Best seller</span>
+                        </div>
+                        <h2>Oreo Madness</h2>
+                        <p>Creamy vanilla and crushed Oreo biscuits in a rich cookies-and-cream finish.</p>
+                    </div>
                 </article>
-                <article class="feature-card">
+                <article class="feature-card menu-card">
                     <div class="image-frame">
                         <img class="image-placeholder" src="Strawberry.png" alt="Fresh Strawberry">
                     </div>
-                    <h2>Fresh Strawberry</h2>
-                    <p>Bright berry flavour with a smooth, sweet creamy texture.</p>
+                    <div class="menu-card-copy">
+                        <div class="menu-card-topline">
+                            <span class="menu-card-type">Fruit</span>
+                        </div>
+                        <h2>Fresh Strawberry</h2>
+                        <p>Bright berry flavour with a smooth, sweet creamy texture.</p>
+                    </div>
                 </article>
-                <article class="feature-card">
+                <article class="feature-card menu-card">
                     <div class="image-frame">
                         <img class="image-placeholder" src="Mango.png" alt="Mango Delight">
                     </div>
-                    <h2>Mango Delight</h2>
-                    <p>Sweet tropical mango with a refreshing creamy finish.</p>
+                    <div class="menu-card-copy">
+                        <div class="menu-card-topline">
+                            <span class="menu-card-type">Tropical</span>
+                        </div>
+                        <h2>Mango Delight</h2>
+                        <p>Sweet tropical mango with a refreshing creamy finish.</p>
+                    </div>
                 </article>
-                <article class="feature-card">
+                <article class="feature-card menu-card">
                     <div class="image-frame">
                         <img class="image-placeholder" src="bubblegum.png" alt="Sweet Bubblegum">
                     </div>
-                    <h2>Sweet Bubblegum</h2>
-                    <p>A playful candy-shop flavour with a smooth vanilla base.</p>
+                    <div class="menu-card-copy">
+                        <div class="menu-card-topline">
+                            <span class="menu-card-type">Classic</span>
+                        </div>
+                        <h2>Sweet Bubblegum</h2>
+                        <p>A playful candy-shop flavour with a smooth vanilla base.</p>
+                    </div>
                 </article>
-                <article class="feature-card">
+                <article class="feature-card menu-card">
                     <div class="image-frame">
                         <img class="image-placeholder" src="biscoff.png" alt="Biscoff Special">
                     </div>
-                    <h2>Biscoff Special</h2>
-                    <p>Buttery caramel notes with a rich biscuit-inspired taste.</p>
+                    <div class="menu-card-copy">
+                        <div class="menu-card-topline">
+                            <span class="menu-card-type">Indulgent</span>
+                        </div>
+                        <h2>Biscoff Special</h2>
+                        <p>Buttery caramel notes with a rich biscuit-inspired taste.</p>
+                    </div>
                 </article>
-                <article class="feature-card">
+                <article class="feature-card menu-card">
                     <div class="image-frame">
                         <img class="image-placeholder" src="vanilla.png" alt="Vanilla Dream">
                     </div>
-                    <h2>Vanilla Dream</h2>
-                    <p>Classic vanilla, smooth and silky with a timeless finish.</p>
+                    <div class="menu-card-copy">
+                        <div class="menu-card-topline">
+                            <span class="menu-card-type">Smooth</span>
+                        </div>
+                        <h2>Vanilla Dream</h2>
+                        <p>Classic vanilla, smooth and silky with a timeless finish.</p>
+                    </div>
                 </article>
-                <article class="feature-card">
+                <article class="feature-card menu-card">
                     <div class="image-frame">
                         <img class="image-placeholder" src="mint.png" alt="Mint Magic">
                     </div>
-                    <h2>Mint Magic</h2>
-                    <p>Cool, refreshing mint with a creamy and clean finish.</p>
+                    <div class="menu-card-copy">
+                        <div class="menu-card-topline">
+                            <span class="menu-card-type">Fresh</span>
+                        </div>
+                        <h2>Mint Magic</h2>
+                        <p>Cool, refreshing mint with a creamy and clean finish.</p>
+                    </div>
                 </article>
-                <article class="feature-card">
+                <article class="feature-card menu-card">
                     <div class="image-frame">
                         <img class="image-placeholder" src="honeycomb.png" alt="Honeycomb Heaven">
                     </div>
-                    <h2>Honeycomb Heaven</h2>
-                    <p>Sweet caramel crunch with a rich, indulgent finish.</p>
+                    <div class="menu-card-copy">
+                        <div class="menu-card-topline">
+                            <span class="menu-card-type">Crunch</span>
+                        </div>
+                        <h2>Honeycomb Heaven</h2>
+                        <p>Sweet caramel crunch with a rich, indulgent finish.</p>
+                    </div>
                 </article>
             </section>
         </main>
     </div>
+    <script>
+        const nav = document.querySelector('.site-nav');
+        const navToggle = document.querySelector('.nav-toggle');
+        navToggle.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('site-nav--open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+            navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        });
+    </script>
 </body>
 </html>

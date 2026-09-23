@@ -10,12 +10,17 @@
 <body>
     <div class="page-shell page-alt">
         <nav class="site-nav">
-            <a href="index.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="services.html" class="active">Services</a>
-            <a href="menu.html">Menu</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav-links">
+                <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+            <div class="site-nav-links" id="site-nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </nav>
 
         <header class="page-intro">
@@ -28,17 +33,75 @@
             <section class="page-card">
                 <div class="page-grid">
                     <article class="provide-card">
+                        <span class="provide-card-number">01</span>
                         <h3>Weddings <span class="emoji" aria-hidden="true">💍</span></h3>
-                        <p>Add a unique and elegant touch to your special day with freshly rolled ice cream made live for your guests. Our service combines beautiful presentation with custom flavours to perfectly complement your wedding.</p>
+                        <p>Elegant live-made ice cream and custom flavours for your perfect day.</p>
                     </article>
                     <article class="provide-card">
+                        <span class="provide-card-number">02</span>
                         <h3>Parties <span class="emoji" aria-hidden="true">🎉</span></h3>
-                        <p>Bring energy and fun to any celebration with our interactive rolled ice cream experience. Guests can enjoy freshly made treats tailored to their tastes, creating a memorable highlight for any event.</p>
+                        <p>A lively, interactive treat that gives every celebration a memorable highlight.</p>
                     </article>
                     <article class="provide-card">
+                        <span class="provide-card-number">03</span>
                         <h3>Festivals <span class="emoji" aria-hidden="true">🎪</span></h3>
-                        <p>Draw in the crowds with our vibrant rolled ice cream setup, offering quick service and eye-catching live preparation. It’s the perfect combination of entertainment and a refreshing treat for busy festival-goers.</p>
+                        <p>Fast, eye-catching service that draws a crowd and keeps festival guests refreshed.</p>
                     </article>
+                </div>
+            </section>
+
+            <section class="page-card testimonials-section">
+                <div class="section-heading testimonials-heading">
+                    <p class="eyebrow">Testimonials</p>
+                    <h2>What people are saying</h2>
+                </div>
+                <div class="testimonials-carousel">
+                    <button class="testimonial-arrow testimonial-arrow--prev" type="button" aria-label="Previous testimonials">&#8249;</button>
+                    <div class="testimonials-scroll" aria-label="Customer testimonials">
+                        <div class="testimonials-track">
+                            <article class="testimonial-card">
+                                <div class="testimonial-stars" aria-label="Five stars">★★★★★</div>
+                                <p>“The rolled ice cream was the highlight of our wedding day. Everyone commented on how beautiful and delicious it was.”</p>
+                                <div class="testimonial-author">
+                                    <strong>Emily & James</strong>
+                                    <span>Wedding guests</span>
+                                </div>
+                            </article>
+                            <article class="testimonial-card">
+                                <div class="testimonial-stars" aria-label="Five stars">★★★★★</div>
+                                <p>“Cold n Rolled brought energy and personality to our festival stall. The service was smooth, fun, and the flavours were amazing.”</p>
+                                <div class="testimonial-author">
+                                    <strong>Festival Team</strong>
+                                    <span>Community event</span>
+                                </div>
+                            </article>
+                            <article class="testimonial-card">
+                                <div class="testimonial-stars" aria-label="Five stars">★★★★★</div>
+                                <p>“We booked for a birthday party and it was such a hit with both adults and kids. The setup looked premium and the service was brilliant.”</p>
+                                <div class="testimonial-author">
+                                    <strong>Sarah M.</strong>
+                                    <span>Private party</span>
+                                </div>
+                            </article>
+                            <article class="testimonial-card">
+                                <div class="testimonial-stars" aria-label="Five stars">★★★★★</div>
+                                <p>“Absolutely stunning presentation and incredibly friendly service. Our guests were still talking about it the next day.”</p>
+                                <div class="testimonial-author">
+                                    <strong>Laura P.</strong>
+                                    <span>Private event</span>
+                                </div>
+                            </article>
+                            <article class="testimonial-card">
+                                <div class="testimonial-stars" aria-label="Five stars">★★★★★</div>
+                                <p>“The team made our corporate evening feel really special. Delicious flavours, a beautiful setup, and service that kept everyone smiling.”</p>
+                                <div class="testimonial-author">
+                                    <strong>Marcus T.</strong>
+                                    <span>Corporate event</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <button class="testimonial-arrow testimonial-arrow--next" type="button" aria-label="Next testimonials">&#8250;</button>
                 </div>
             </section>
 
@@ -57,5 +120,41 @@
             </section>
         </main>
     </div>
+    <script>
+        const nav = document.querySelector('.site-nav');
+        const navToggle = document.querySelector('.nav-toggle');
+        navToggle.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('site-nav--open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+            navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        });
+
+        const testimonialsScroll = document.querySelector('.testimonials-scroll');
+        const firstTestimonial = document.querySelector('.testimonial-card');
+        const prevTestimonial = document.querySelector('.testimonial-arrow--prev');
+        const nextTestimonial = document.querySelector('.testimonial-arrow--next');
+
+        if (testimonialsScroll && firstTestimonial && prevTestimonial && nextTestimonial) {
+            const scrollAmount = () => {
+                const cardWidth = firstTestimonial.getBoundingClientRect().width;
+                const cardGap = parseFloat(getComputedStyle(firstTestimonial.parentElement).gap) || 0;
+                return cardWidth + cardGap;
+            };
+
+            prevTestimonial.addEventListener('click', () => {
+                testimonialsScroll.scrollBy({
+                    left: -scrollAmount(),
+                    behavior: 'smooth'
+                });
+            });
+
+            nextTestimonial.addEventListener('click', () => {
+                testimonialsScroll.scrollBy({
+                    left: scrollAmount(),
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
 </body>
 </html>

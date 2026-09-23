@@ -10,12 +10,17 @@
 <body>
     <div class="page-shell page-alt">
         <nav class="site-nav">
-            <a href="index.html">Home</a>
-            <a href="events.html" class="active">Events</a>
-            <a href="services.html">Services</a>
-            <a href="menu.html">Menu</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav-links">
+                <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+            <div class="site-nav-links" id="site-nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html" class="active">Events</a>
+                <a href="services.html">Services</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </nav>
 
         <header class="page-intro">
@@ -41,7 +46,40 @@
                 </div>
             </section>
 
-            <section class="page-card">
+            <section class="page-card event-gallery-section">
+                <div class="section-heading event-gallery-heading">
+                    <p class="eyebrow">Event gallery</p>
+                    <h2>Moments from the field</h2>
+                </div>
+                <div class="event-gallery-grid">
+                    <figure class="event-gallery-card event-gallery-card--wide">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 700'%3E%3Crect width='900' height='700' fill='%23102d27'/%3E%3Crect x='60' y='60' width='780' height='580' rx='30' fill='none' stroke='%23d6b56a' stroke-width='4'/%3E%3Ccircle cx='265' cy='255' r='120' fill='%23f7e8c8' opacity='0.18'/%3E%3Ccircle cx='628' cy='245' r='100' fill='%23e6c980' opacity='0.14'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%23f8f3e9' font-family='Arial' font-size='46'%3EFestival setup%3C/text%3E%3C/svg%3E" alt="Cold N Rolled event stall">
+                        <figcaption>Festival setup</figcaption>
+                    </figure>
+                    <figure class="event-gallery-card">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 700'%3E%3Crect width='700' height='700' fill='%23f4efe8'/%3E%3Crect x='50' y='50' width='600' height='600' rx='28' fill='none' stroke='%23d6b56a' stroke-width='4'/%3E%3Cpath d='M160 440 C210 350, 290 300, 350 360 S500 420, 560 300' fill='none' stroke='%234a8d7b' stroke-width='18' stroke-linecap='round'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%23142d2a' font-family='Arial' font-size='38'%3ELive service%3C/text%3E%3C/svg%3E" alt="Guests enjoying ice cream at an event">
+                        <figcaption>Live service</figcaption>
+                    </figure>
+                    <figure class="event-gallery-card event-gallery-card--tall">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 900'%3E%3Crect width='800' height='900' fill='%23fdf7ef'/%3E%3Crect x='60' y='60' width='680' height='780' rx='28' fill='none' stroke='%23d6b56a' stroke-width='4'/%3E%3Ccircle cx='270' cy='340' r='120' fill='%23ecb3bf' opacity='0.52'/%3E%3Ccircle cx='500' cy='420' r='130' fill='%23f4d390' opacity='0.52'/%3E%3Ccircle cx='390' cy='540' r='115' fill='%23b9d9bf' opacity='0.4'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%23142d2a' font-family='Arial' font-size='40'%3EFresh flavours%3C/text%3E%3C/svg%3E" alt="Fresh ice cream dessert spread">
+                        <figcaption>Fresh flavours</figcaption>
+                    </figure>
+                    <figure class="event-gallery-card">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 700'%3E%3Crect width='700' height='700' fill='%231a322d'/%3E%3Crect x='48' y='48' width='604' height='604' rx='28' fill='none' stroke='%23d6b56a' stroke-width='4'/%3E%3Cpath d='M180 430 H520' stroke='%23d6b56a' stroke-width='12' stroke-linecap='round'/%3E%3Cpath d='M160 510 H540' stroke='%23f5e7be' stroke-width='10' stroke-linecap='round' opacity='0.8'/%3E%3Ccircle cx='260' cy='270' r='88' fill='%23f8f3e9' opacity='0.18'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%23f8f3e9' font-family='Arial' font-size='34'%3EOn-site prep%3C/text%3E%3C/svg%3E" alt="Ice cream preparation at an outdoor event">
+                        <figcaption>On-site prep</figcaption>
+                    </figure>
+                    <figure class="event-gallery-card event-gallery-card--wide">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 700'%3E%3Crect width='900' height='700' fill='%23f6e7d4'/%3E%3Crect x='58' y='58' width='784' height='584' rx='30' fill='none' stroke='%23d6b56a' stroke-width='4'/%3E%3Cpath d='M160 520 C260 420, 320 360, 370 420 C430 480, 500 490, 640 350' fill='none' stroke='%231b3347' stroke-width='18' stroke-linecap='round'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%23142d2a' font-family='Arial' font-size='40'%3EGuest favourites%3C/text%3E%3C/svg%3E" alt="Crowd enjoying desserts at a festival">
+                        <figcaption>Guest favourites</figcaption>
+                    </figure>
+                    <figure class="event-gallery-card">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 700'%3E%3Crect width='700' height='700' fill='%23f4ebe0'/%3E%3Crect x='50' y='50' width='600' height='600' rx='28' fill='none' stroke='%23d6b56a' stroke-width='4'/%3E%3Crect x='150' y='170' width='240' height='220' rx='22' fill='%23d7b268' opacity='0.6'/%3E%3Crect x='310' y='240' width='200' height='210' rx='22' fill='%233a8d7c' opacity='0.62'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%23142d2a' font-family='Arial' font-size='34'%3ESweet moments%3C/text%3E%3C/svg%3E" alt="Dessert table with colourful ice cream treats">
+                        <figcaption>Sweet moments</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="page-card events-expect-section">
                 <div class="section-heading">
                     <p class="eyebrow">What to expect</p>
                     <h2>Fresh, fun and memorable</h2>
@@ -64,5 +102,14 @@
             </section>
         </main>
     </div>
+    <script>
+        const nav = document.querySelector('.site-nav');
+        const navToggle = document.querySelector('.nav-toggle');
+        navToggle.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('site-nav--open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+            navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        });
+    </script>
 </body>
 </html>

@@ -10,13 +10,36 @@
 <body>
     <div class="page-shell page-alt">
         <nav class="site-nav">
-            <a href="index.html" class="active">Home</a>
-            <a href="events.html">Events</a>
-            <a href="services.html">Services</a>
-            <a href="menu.html">Menu</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav-links">
+                <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+            <div class="site-nav-links" id="site-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="events.html">Events</a>
+                <a href="services.html">Services</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </nav>
+        <div class="home-side-photos" aria-hidden="true">
+            <div class="home-side-photo-group home-side-photo-group--left">
+                <div class="home-side-photo">
+                    <img src="vanilla.png" alt="">
+                </div>
+                <div class="home-side-photo home-side-photo--overlap">
+                    <img src="Oreo.png" alt="">
+                </div>
+            </div>
+            <div class="home-side-photo-group home-side-photo-group--right">
+                <div class="home-side-photo">
+                    <img src="Strawberry.png" alt="">
+                </div>
+                <div class="home-side-photo home-side-photo--overlap">
+                    <img src="Mango.png" alt="">
+                </div>
+            </div>
+        </div>
         <header class="hero">
             <div class="hero-copy">
                 <p class="eyebrow">Welcome to</p>
@@ -25,6 +48,11 @@
                     <img src="coldnrolled.png" alt="Cold N Rolled logo" class="brand-logo">
                 </div>
                 <p class="hero-description">Freshly rolled Ice Cream</p>
+                <p class="hero-value">Freshly made, beautifully rolled, and perfect for events across Cornwall and Devon.</p>
+                <div class="hero-actions">
+                    <a class="page-cta" href="menu.html">View our menu</a>
+                    <a class="page-cta secondary" href="contact.html">Book us for an event</a>
+                </div>
             </div>
         </header>
 
@@ -55,24 +83,41 @@
             </div>
         </section>
 
+        <section class="process-section" aria-labelledby="process-heading">
+            <div class="section-heading">
+                <p class="eyebrow">Made fresh for you</p>
+                <h2 id="process-heading">How it works</h2>
+            </div>
+            <div class="process-grid">
+                <article class="process-card">
+                    <span class="process-number">01</span>
+                    <h3>Choose your flavour</h3>
+                    <p>Pick a favourite or create something new with fresh ingredients.</p>
+                </article>
+                <article class="process-card">
+                    <span class="process-number">02</span>
+                    <h3>Watch it being rolled</h3>
+                    <p>See your ice cream mixed, frozen, and rolled right in front of you.</p>
+                </article>
+                <article class="process-card">
+                    <span class="process-number">03</span>
+                    <h3>Add your toppings</h3>
+                    <p>Finish your creation with the toppings and drizzle that you love.</p>
+                </article>
+            </div>
+        </section>
+
     </div>
 
-    <button class="back-to-top" type="button" aria-label="Back to top">
-        <span class="back-to-top__icon">↑</span>
-        Back to top
-    </button>
-
     <script>
-        const backToTopButton = document.querySelector('.back-to-top');
         const nav = document.querySelector('.site-nav');
+        const navToggle = document.querySelector('.nav-toggle');
 
-        const toggleBackToTop = () => {
-            if (window.scrollY > 320) {
-                backToTopButton.classList.add('back-to-top--visible');
-            } else {
-                backToTopButton.classList.remove('back-to-top--visible');
-            }
-        };
+        navToggle.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('site-nav--open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+            navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        });
 
         const toggleNavShape = () => {
             if (window.scrollY > 0) {
@@ -82,16 +127,10 @@
             }
         };
 
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
         window.addEventListener('scroll', () => {
-            toggleBackToTop();
             toggleNavShape();
         });
         window.addEventListener('load', () => {
-            toggleBackToTop();
             toggleNavShape();
         });
     </script>

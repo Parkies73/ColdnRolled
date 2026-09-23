@@ -10,12 +10,17 @@
 <body>
     <div class="page-shell page-alt">
         <nav class="site-nav">
-            <a href="index.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="services.html">Services</a>
-            <a href="menu.html">Menu</a>
-            <a href="about.html" class="active">About</a>
-            <a href="contact.html">Contact</a>
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav-links">
+                <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+            <div class="site-nav-links" id="site-nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="services.html">Services</a>
+                <a href="menu.html">Menu</a>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </nav>
 
         <header class="page-intro">
@@ -67,5 +72,14 @@
             </section>
         </main>
     </div>
+    <script>
+        const nav = document.querySelector('.site-nav');
+        const navToggle = document.querySelector('.nav-toggle');
+        navToggle.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('site-nav--open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+            navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        });
+    </script>
 </body>
 </html>

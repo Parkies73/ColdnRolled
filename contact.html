@@ -133,6 +133,14 @@
             navToggle.setAttribute('aria-expanded', String(isOpen));
             navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
         });
+
+        const toggleBottomWave = () => {
+            const atPageBottom = window.scrollY > 8 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+            document.body.classList.toggle('page-at-bottom', atPageBottom);
+        };
+
+        window.addEventListener('scroll', toggleBottomWave);
+        window.addEventListener('load', toggleBottomWave);
     </script>
 </body>
 </html>

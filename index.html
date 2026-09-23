@@ -125,6 +125,9 @@
             } else {
                 nav.classList.remove('site-nav--scrolled');
             }
+
+            const atPageBottom = window.scrollY > 8 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+            document.body.classList.toggle('page-at-bottom', atPageBottom);
         };
 
         window.addEventListener('scroll', () => {

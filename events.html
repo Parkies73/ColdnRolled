@@ -51,7 +51,10 @@
                     <p class="eyebrow">Event gallery</p>
                     <h2>Moments from the field</h2>
                 </div>
-                <div class="event-gallery-grid">
+                <div class="event-gallery-carousel">
+                    <button class="event-gallery-arrow event-gallery-arrow--prev" type="button" aria-label="Previous event gallery images">&#8249;</button>
+                    <div class="event-gallery-window" aria-label="Event gallery">
+                        <div class="event-gallery-grid">
                     <figure class="event-gallery-card event-gallery-card--wide">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 700'%3E%3Crect width='900' height='700' fill='%23102d27'/%3E%3Crect x='60' y='60' width='780' height='580' rx='30' fill='none' stroke='%23d6b56a' stroke-width='4'/%3E%3Ccircle cx='265' cy='255' r='120' fill='%23f7e8c8' opacity='0.18'/%3E%3Ccircle cx='628' cy='245' r='100' fill='%23e6c980' opacity='0.14'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%23f8f3e9' font-family='Arial' font-size='46'%3EFestival setup%3C/text%3E%3C/svg%3E" alt="Cold N Rolled event stall">
                         <figcaption>Festival setup</figcaption>
@@ -76,6 +79,9 @@
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 700'%3E%3Crect width='700' height='700' fill='%23f4ebe0'/%3E%3Crect x='50' y='50' width='600' height='600' rx='28' fill='none' stroke='%23d6b56a' stroke-width='4'/%3E%3Crect x='150' y='170' width='240' height='220' rx='22' fill='%23d7b268' opacity='0.6'/%3E%3Crect x='310' y='240' width='200' height='210' rx='22' fill='%233a8d7c' opacity='0.62'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%23142d2a' font-family='Arial' font-size='34'%3ESweet moments%3C/text%3E%3C/svg%3E" alt="Dessert table with colourful ice cream treats">
                         <figcaption>Sweet moments</figcaption>
                     </figure>
+                        </div>
+                    </div>
+                    <button class="event-gallery-arrow event-gallery-arrow--next" type="button" aria-label="Next event gallery images">&#8250;</button>
                 </div>
             </section>
 
@@ -110,6 +116,35 @@
             navToggle.setAttribute('aria-expanded', String(isOpen));
             navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
         });
+
+        const toggleBottomWave = () => {
+            const atPageBottom = window.scrollY > 8 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+            document.body.classList.toggle('page-at-bottom', atPageBottom);
+        };
+
+        window.addEventListener('scroll', toggleBottomWave);
+        window.addEventListener('load', toggleBottomWave);
+
+        const galleryWindow = document.querySelector('.event-gallery-window');
+        const firstGalleryCard = document.querySelector('.event-gallery-card');
+        const previousGallery = document.querySelector('.event-gallery-arrow--prev');
+        const nextGallery = document.querySelector('.event-gallery-arrow--next');
+
+        if (galleryWindow && firstGalleryCard && previousGallery && nextGallery) {
+            const galleryScrollAmount = () => {
+                const cardWidth = firstGalleryCard.getBoundingClientRect().width;
+                const cardGap = parseFloat(getComputedStyle(firstGalleryCard.parentElement).gap) || 0;
+                return cardWidth + cardGap;
+            };
+
+            previousGallery.addEventListener('click', () => {
+                galleryWindow.scrollBy({ left: -galleryScrollAmount(), behavior: 'smooth' });
+            });
+
+            nextGallery.addEventListener('click', () => {
+                galleryWindow.scrollBy({ left: galleryScrollAmount(), behavior: 'smooth' });
+            });
+        }
     </script>
 </body>
 </html>

@@ -1440,6 +1440,13 @@ body::after {
     border-radius: 14px;
 }
 
+.footer-line a,
+.footer-line .contact-number {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    text-align: right;
+}
+
 .footer-line strong,
 .footer-line span {
     color: rgba(249,250,251,0.95);
@@ -1664,6 +1671,26 @@ body::after {
 
     .feature-card {
         min-height: auto;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-block--social {
+        margin-left: 0;
+    }
+
+    .footer-line {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+        padding: 10px 12px;
+    }
+
+    .footer-line a,
+    .footer-line .contact-number {
+        text-align: left;
     }
 
     .menu-grid {

@@ -15,9 +15,10 @@ h1, h2, h3 {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
 }
 
-html, body {
+html {
     height: 100%;
 }
 
@@ -31,6 +32,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: relative;
+    min-height: 100%;
 }
 
 /* Ensure main content sits above the decorative wave layers */
@@ -45,7 +47,7 @@ body {
 .site-nav {
     position: sticky;
     top: 0;
-    width: 100vw;
+    width: auto;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     z-index: 10;
@@ -108,7 +110,7 @@ body {
     outline-offset: 4px;
 }
 
-/* Document-bound wave layers scroll naturally with each page. */
+/* Decorative wave layers sit behind page content. */
 body::before,
 body::after {
     content: "";
@@ -131,19 +133,12 @@ body::before {
 
 /* Bottom pink wave */
 body::after {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     height: 52vh;
     background-position: center bottom;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'><rect width='1440' height='320' fill='%23fff6fb'/><defs><linearGradient id='g2' x1='0' x2='1' y1='0' y2='1'><stop offset='0%' stop-color='%23ff98ad'/><stop offset='100%' stop-color='%23ffc9d6'/></linearGradient></defs><path fill='url(%23g2)' d='M0,160 C120,200 240,120 360,150 C480,180 600,120 720,150 C840,180 960,120 1080,150 C1200,180 1320,170 1440,160 L1440,320 L0,320 Z'/></svg>");
-    opacity: 0;
-    transform: translateY(100%);
-    transition: opacity 320ms ease, transform 420ms ease;
-}
-
-body.page-at-bottom::after {
     opacity: 0.95;
-    transform: translateY(0);
 }
 
 /* Mobile adjustments: lower heights so waves don't dominate small viewports */
@@ -317,9 +312,9 @@ body.page-at-bottom::after {
 }
 
 .page-cta.secondary {
-    background: #fff;
-    color: #111827;
-    border: 1px solid rgba(229,231,235,0.9);
+    background: #f8c8dc;
+    color: #5b2c40;
+    border: 1px solid #f2b6ce;
 }
 
 .quote-form-wrap {
@@ -1673,7 +1668,7 @@ body.page-at-bottom::after {
         width: 100%;
         height: 2px;
         border-radius: 2px;
-        background: #374151;
+        background: #fff;
     }
 
     .site-nav-links {
